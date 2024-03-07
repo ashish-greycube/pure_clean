@@ -1,0 +1,2 @@
+pure_clean.patches.add_column_break_in_item_price
+pure_clean.patches.add_item_weight_cf_field_in_item_price
