@@ -15,6 +15,7 @@ def execute():
 				"translatable":0,
 				"no_copy":1,
 				"precision": 1,
+				"read_only":1
 				
             },			
 			{
