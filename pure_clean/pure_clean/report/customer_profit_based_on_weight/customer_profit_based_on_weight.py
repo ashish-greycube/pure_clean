@@ -127,7 +127,10 @@ def get_data(filters):
 		total_sales_of_all_customer = flt((total_sales_of_all_customer + row.get('total_sales')),2)
 
 
-	cost_per_weight = flt((total_cost_for_all_customer / total_weight_of_all_customer),2)
+	if total_weight_of_all_customer!=0:
+		cost_per_weight = flt((total_cost_for_all_customer / total_weight_of_all_customer),2)
+	else:
+		cost_per_weight=0
 	for row in data_for_all_customer:
 		if row.get('total_weight'):
 			total_cost=flt((cost_per_weight * row.get('total_weight')),2)
