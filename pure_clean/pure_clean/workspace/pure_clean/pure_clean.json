@@ -62,6 +62,15 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Account",
+   "link_to": "Account",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Report",
    "link_type": "DocType",
    "onboard": 0,
@@ -86,7 +95,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-03-14 13:29:00.707753",
+ "modified": "2024-03-15 06:55:33.080303",
  "modified_by": "Administrator",
  "module": "Pure Clean",
  "name": "Pure Clean",
