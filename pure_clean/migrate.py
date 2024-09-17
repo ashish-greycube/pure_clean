@@ -26,8 +26,34 @@ def after_migrate():
 				"no_copy":1,
 			},			
         ],
+        "Sales Invoice": [
+            {
+				"fieldname":'washing_priority_cf',
+                "label":'Washing Priority',
+				"fieldtype":'Select',
+				"insert_after":'due_date',
+				"is_custom_field":1,
+				"is_system_generated":0,
+                "options":'Normal\nQuick',
+                "default":'Normal',
+                "translatable":0
+            }
+		],
+        "Sales Order": [
+            {
+				"fieldname":'washing_priority_cf',
+                "label":'Washing Priority',
+				"fieldtype":'Select',
+				"insert_after":'order_type',
+				"is_custom_field":1,
+				"is_system_generated":0,
+                "options":'Normal\nQuick',
+                "default":'Normal',
+                "translatable":0
+            }
+		]
     }
-    print("Add Expense Account For Cleaning custom table in Company.....")
+    print("Add Expense Account For Cleaning custom table in Company and Washing Priority custom field in SI,SO.....")
     for dt, fields in custom_fields.items():
         print("*******\n %s: " % dt, [d.get("fieldname") for d in fields])
     create_custom_fields(custom_fields)

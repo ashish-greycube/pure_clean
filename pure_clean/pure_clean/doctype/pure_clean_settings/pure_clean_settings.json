@@ -1,0 +1,43 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-05 07:26:35.476468",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "priority_rate"
+ ],
+ "fields": [
+  {
+   "description": "Increase rate by %",
+   "fieldname": "priority_rate",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Priority Rate %",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-09-05 07:38:47.384475",
+ "modified_by": "Administrator",
+ "module": "Pure Clean",
+ "name": "Pure Clean Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -71,6 +71,24 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Sales Order",
+   "link_to": "Sales Order",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Pure Clean Settings",
+   "link_to": "Pure Clean Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Report",
    "link_type": "DocType",
    "onboard": 0,
@@ -93,9 +111,36 @@
    "link_type": "Report",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Collection",
+   "link_to": "Collection",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Monthly Customer Loyalty By Sales Partner",
+   "link_to": "Monthly Customer Loyalty By Sales Partner",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Monthly Customer Loyalty By Marketing Person",
+   "link_to": "Monthly Customer Loyalty By Marketing Person",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2024-03-15 06:55:33.080303",
+ "modified": "2024-09-10 07:33:24.639896",
  "modified_by": "Administrator",
  "module": "Pure Clean",
  "name": "Pure Clean",
