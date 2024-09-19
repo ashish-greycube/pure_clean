@@ -110,7 +110,6 @@ def get_customer_stats(filters):
 		"""select
 			si.posting_date as posting_date,
 			si.customer,
-			
 			st.sales_person,
 			st.allocated_amount
 		from
@@ -132,7 +131,7 @@ def get_customer_stats(filters):
 	):
 
 		key = si.posting_date.strftime("%Y-%m")
-		new_or_repeat = "new" if si.sales_person not in customers else "repeat"
+		new_or_repeat = "new" if si.customer not in customers else "repeat"
 		customers_in.setdefault(key, {"new": [0, 0.0], "repeat": [0, 0.0]})
 
 		# if filters.from_date <= si.posting_date.strftime('%Y-%m-%d'):
@@ -141,55 +140,7 @@ def get_customer_stats(filters):
 			customers_in[key][new_or_repeat][1] += si.allocated_amount
 
 		if new_or_repeat == "new":
-			customers.append(si.sales_person)
+			customers.append(si.customer)
 		print(customers_in,"--------------------------------------",customers)
 
 	return customers_in
-
-# def get_customer_stats(filters):
-# 	"""Calculates number of new and repeated customers and revenue."""
-# 	company_condition = ""
-
-# 	if filters.get("sales_person"):
-# 		company_condition = " and sales_person=%(sales_person)s"
-
-# 	customers = []
-# 	customers_in = {}
-# 	# values = {"sales_person":"Zelam","to_date":"2024-12-31"}
-# 	for si in frappe.db.sql(
-# 		"""select
-# 			si.posting_date as posting_date,
-# 			si.customer,
-			
-# 			st.sales_person,
-# 			st.allocated_amount
-# 		from
-# 			`tabSales Invoice` si
-# 		Inner join `tabSales Team` st ON st.parent = si.name
-# 		where
-# 			st.idx = 1
-# 			and si.docstatus = 1
-# 			and si.posting_date <= %s
-# 			and st.sales_person = %s
-# 		order by
-# 			posting_date
-# 		""",("2024-12-31","Zelam"),
-# 		# filters,
-# 		as_dict=1,
-# 		debug=1
-# 	):
-
-# 		key = si.posting_date.strftime("%Y-%m")
-# 		new_or_repeat = "new" if si.sales_person not in customers else "repeat"
-# 		customers_in.setdefault(key, {"new": [0, 0.0], "repeat": [0, 0.0]})
-
-# 		# if filters.from_date <= si.posting_date.strftime('%Y-%m-%d'):
-# 		if getdate(filters.from_date) <= getdate(si.posting_date):
-# 			customers_in[key][new_or_repeat][0] += 1
-# 			customers_in[key][new_or_repeat][1] += si.allocated_amount
-
-# 		if new_or_repeat == "new":
-# 			customers.append(si.sales_person)
-# 		print(customers_in,"--------------------------------------",customers)
-
-# 	return customers_in

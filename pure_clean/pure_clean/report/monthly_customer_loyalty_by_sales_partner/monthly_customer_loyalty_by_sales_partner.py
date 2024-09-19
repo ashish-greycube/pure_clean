@@ -105,7 +105,7 @@ def get_customer_stats(filters):
 	customers_in = {}
 
 	for si in frappe.db.sql(
-		"""select posting_date, sales_partner, base_grand_total from `tabSales Invoice`
+		"""select posting_date, sales_partner,customer, base_grand_total from `tabSales Invoice`
 		where docstatus=1 and posting_date <= %(to_date)s
 		{company_condition} order by posting_date""".format(
 			company_condition=company_condition
@@ -114,16 +114,15 @@ def get_customer_stats(filters):
 		as_dict=1,
 		debug = 1
 	):
-		if si.sales_partner:
-			key = si.posting_date.strftime("%Y-%m")
-			new_or_repeat = "new" if si.sales_partner not in customers else "repeat"
-			customers_in.setdefault(key, {"new": [0, 0.0], "repeat": [0, 0.0]})
+		key = si.posting_date.strftime("%Y-%m")
+		new_or_repeat = "new" if si.customer not in customers else "repeat"
+		customers_in.setdefault(key, {"new": [0, 0.0], "repeat": [0, 0.0]})
 
-			# if filters.from_date <= si.posting_date.strftime('%Y-%m-%d'):
-			if getdate(filters.from_date) <= getdate(si.posting_date):
-				customers_in[key][new_or_repeat][0] += 1
-				customers_in[key][new_or_repeat][1] += si.base_grand_total
-			if new_or_repeat == "new":
-				customers.append(si.sales_partner)
+		# if filters.from_date <= si.posting_date.strftime('%Y-%m-%d'):
+		if getdate(filters.from_date) <= getdate(si.posting_date):
+			customers_in[key][new_or_repeat][0] += 1
+			customers_in[key][new_or_repeat][1] += si.base_grand_total
+		if new_or_repeat == "new":
+			customers.append(si.customer)
 
 	return customers_in

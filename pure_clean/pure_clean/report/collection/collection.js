@@ -21,7 +21,8 @@ frappe.query_reports["Collection"] = {
 			"fieldname":"customer",
 			"label": __("Customer"),
 			"fieldtype": "Link",
-			"options": "Customer"
+			"options": "Customer",
+			"reqd":1
 		},
 	]
 };
