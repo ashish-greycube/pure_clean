@@ -50,8 +50,18 @@ def after_migrate():
                 "options":'Normal\nQuick',
                 "default":'Normal',
                 "translatable":0
+            },
+            {
+				"fieldname":'extra_rate_percentage_cf',
+                "label":'Extra Rate Percentage %',
+				"fieldtype":'Percent',
+				"insert_after":'tax_id',
+				"is_custom_field":1,
+				"is_system_generated":0,
+                "translatable":0,
+                "depends_on":"eval: doc.washing_priority_cf == 'Quick'"
             }
-		]
+		],
     }
     print("Add Expense Account For Cleaning custom table in Company and Washing Priority custom field in SI,SO.....")
     for dt, fields in custom_fields.items():
