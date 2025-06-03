@@ -19,8 +19,8 @@ def execute(filters=None):
 		msgprint(_("No records found"))
 		return columns,report_data
 	
-
-	return columns, report_data, None, None, report_summary
+	notes="<b>Notes: </b><br>Total Cost (SAR) Condition : In item price doctype --> customer, price list and  weight(gm) is properly set."
+	return columns, report_data, notes, None, report_summary
 
 def get_columns():
 	currency_symbol=' ('+erpnext.get_default_currency()+')'
@@ -128,17 +128,17 @@ def get_data(filters):
 
 
 	if total_weight_of_all_customer!=0:
-		cost_per_weight = flt((total_cost_for_all_customer / total_weight_of_all_customer),2)
+		cost_per_weight = flt((total_cost_for_all_customer / (total_weight_of_all_customer/1000)),2)
 	else:
 		cost_per_weight=0
 	for row in data_for_all_customer:
 		if row.get('total_weight'):
-			total_cost=flt((cost_per_weight * row.get('total_weight')),2)
+			total_cost=flt(((cost_per_weight * row.get('total_weight'))/1000),2)
 			total_profit_for_all_customer=flt(total_profit_for_all_customer+(row.get('total_sales') -total_cost),2)
 
 	for d in result_to_show:
 		if d.get('total_weight'):
-			d['total_cost']=flt((cost_per_weight * d.get('total_weight')),2)
+			d['total_cost']=flt(((cost_per_weight * d.get('total_weight'))/1000),2)
 			d['profit']=flt((d.get('total_sales') - d.get('total_cost')),2)
 		else :
 			d['total_weight']='---'
@@ -148,7 +148,7 @@ def get_data(filters):
 	report_summary=[
 		{'label':'Total cost as per expense account','value':total_cost_for_all_customer},
 		{'label':'Total weight(all customer)','value':str(flt((total_weight_of_all_customer/1000),2))+' Kg'},
-		{'label':'Cost per weight','value':cost_per_weight},
+		{'label':'Cost per weight(Per Kg)','value':cost_per_weight},
 		{'label':'Total sales(all customer)','value':total_sales_of_all_customer},
 		{'label':'Total profit(all customer)','value':total_profit_for_all_customer}		
 		]
