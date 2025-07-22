@@ -24,4 +24,15 @@ def calculate_item_weight(self,method):
     self.grand_total_item_weight_cf = total_item_weight
 
         
-    
+def calculate_so_items_weight(self, method=None):
+    total_item_weight = 0
+    if len(self.items) > 0:
+        for item in self.items:
+            per_item_weight = item.item_weight_cf
+            item_qty = item.qty
+            item.item_weight_total_cf = per_item_weight * item_qty
+            print(item_qty, per_item_weight)
+
+            total_item_weight = total_item_weight + (per_item_weight * item_qty)
+
+        self.grand_total_item_weight_cf = total_item_weight

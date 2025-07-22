@@ -101,6 +101,9 @@ after_migrate = "pure_clean.migrate.after_migrate"
 doc_events = {
 	"Sales Invoice": {
         "validate":"pure_clean.api.calculate_item_weight"
+	}, 
+    "Sales Order" : {
+        "validate" : "pure_clean.api.calculate_so_items_weight"
 	}
 }
 

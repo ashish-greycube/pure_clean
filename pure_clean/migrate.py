@@ -24,6 +24,23 @@ def after_migrate():
 				"is_custom_field":1,
 				"is_system_generated":0,
 				"no_copy":1,
+			},		
+            {
+				"fieldname":'material_section_break_cf',
+				"fieldtype":'Section Break',
+				"insert_after":'expense_account_for_cleaning_ct',
+				"is_custom_field":1,
+				"is_system_generated":0,
+            },			
+			{
+				"fieldname": "default_material_accounts_cf",
+				"label":"Default Material Accounts",
+				"fieldtype": "Table",
+				"options":'Material Accounts',
+				"insert_after": 'material_section_break_cf',
+				"is_custom_field":1,
+				"is_system_generated":0,
+				"no_copy":1,
 			},			
         ],
         "Sales Invoice": [
@@ -60,8 +77,69 @@ def after_migrate():
 				"is_system_generated":0,
                 "translatable":0,
                 "depends_on":"eval: doc.washing_priority_cf == 'Quick'"
-            }
+            },
+			{
+                "fieldname" : "machines_section_cf",
+                "fieldtype" : "Section Break",
+                "insert_after":'set_warehouse',
+				"is_custom_field":1,
+				"is_system_generated":0,
+			},
+            {
+                "fieldname" : "chemical_cf",
+                "fieldtype" : "Link",
+                "label":'Chemical',
+                "insert_after":'machines_section_cf',
+				"is_custom_field":1,
+				"is_system_generated":0,
+                "options" : "Chemicals",
+			},
+            {
+                "fieldname" : "time_cf",
+                "fieldtype" : "Time",
+                "label":'Time',
+                "insert_after":'chemical_cf',
+				"is_custom_field":1,
+				"is_system_generated":0,
+			},
+            {
+                "fieldname" : "machine_table_cf",
+                "fieldtype" : "Table",
+                "label":'Machine Details',
+                "insert_after":'time_cf',
+				"is_custom_field":1,
+				"is_system_generated":0,
+                "options" : "Machine Details"
+			},
+            {
+                "fieldname" : "grand_total_item_weight_cf",
+                "fieldtype" : "Float",
+                "label":'Total Item Weight(GM)',
+                "insert_after":'base_net_total',
+				"is_custom_field":1,
+				"is_system_generated":0,
+                "read_only" : 1
+            } 
 		],
+
+        "Sales Order Item" : [
+            {
+                "fieldname" : "item_weight_cf",
+                "fieldtype" : "Float",
+                "label":'Weight (Per)',
+                "insert_after":'amount',
+				"is_custom_field":1,
+				"is_system_generated":0,
+			},
+            {
+                "fieldname" : "item_weight_total_cf",
+                "fieldtype" : "Float",
+                "label":'Total Weight',
+                "insert_after":'stock_uom_rate',
+				"is_custom_field":1,
+				"is_system_generated":0,
+			},
+        ]
     }
     print("Add Expense Account For Cleaning custom table in Company and Washing Priority custom field in SI,SO.....")
     for dt, fields in custom_fields.items():
