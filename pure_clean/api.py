@@ -36,3 +36,16 @@ def calculate_so_items_weight(self, method=None):
             total_item_weight = total_item_weight + (per_item_weight * item_qty)
 
         self.grand_total_item_weight_cf = total_item_weight
+
+def validate_item_weight_with_machine_capacity(self, method=None):
+    machine_capacity = 0
+    if self.grand_total_item_weight_cf:
+        if len(self.machine_table_cf)>0:
+            for machine in self.machine_table_cf:
+                if machine.capacity:
+                    machine_capacity = machine_capacity + machine.capacity
+
+        total_item_weight_in_kg = self.grand_total_item_weight_cf / 1000  # Convert gm to kg
+        if total_item_weight_in_kg > machine_capacity: 
+            frappe.throw(_("Total Item Weight {0} is greater than Machine Capacity {1}").format(
+                total_item_weight_in_kg, machine_capacity))
