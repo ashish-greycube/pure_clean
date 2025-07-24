@@ -89,24 +89,6 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Machines",
-   "link_to": "Machines",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Chemicals",
-   "link_to": "Chemicals",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Report",
    "link_type": "DocType",
    "onboard": 0,
@@ -156,9 +138,18 @@
    "link_type": "Report",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "SO Weight Report",
+   "link_to": "SO Weight Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2025-07-22 10:11:53.424834",
+ "modified": "2025-07-23 11:01:42.041445",
  "modified_by": "Administrator",
  "module": "Pure Clean",
  "name": "Pure Clean",

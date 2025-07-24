@@ -47,5 +47,5 @@ def validate_item_weight_with_machine_capacity(self, method=None):
 
         total_item_weight_in_kg = self.grand_total_item_weight_cf / 1000  # Convert gm to kg
         if total_item_weight_in_kg > machine_capacity: 
-            frappe.throw(_("Total Item Weight {0} is greater than Machine Capacity {1}").format(
+            frappe.throw(_("Total Item Weight {0} KG is greater than Machine Capacity {1} KG").format(
                 total_item_weight_in_kg, machine_capacity))
