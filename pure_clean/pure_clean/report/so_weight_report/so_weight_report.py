@@ -181,7 +181,7 @@ def calculate_cost_for_each_so(data):
 	from erpnext.accounts.report.general_ledger.general_ledger import execute as _execute
 	filters = frappe._dict({
 		'company' : company,
-		'from_date' : add_to_date(today(), months=-1),
+		'from_date' : today(),
 		'to_date' : today(),
 		'account' : accounts,
 		'group_by' : 'Group by Voucher (Consolidated)'
@@ -191,7 +191,7 @@ def calculate_cost_for_each_so(data):
 	material_accounts_total = 0
 	if general_ledger_data != [] or None:
 		for d in general_ledger_data:
-			if d.get('account') == "'Closing (Opening + Total)'":
+			if d.get('account') == "'Total'":
 				material_accounts_total = d.get('balance')
 
 	total_so_weight = 0
