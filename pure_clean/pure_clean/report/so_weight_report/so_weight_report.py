@@ -106,7 +106,7 @@ def get_data(filters):
 					FROM `tabSales Order` tso
 					INNER JOIN `tabMachine Details` m
 					ON m.parent = tso.name
-					WHERE tso.transaction_date BETWEEN '{0}' AND '{1}' 
+					WHERE tso.transaction_date BETWEEN '{0}' AND '{1}' AND tso.docstatus = 1
 					{2}
 					ORDER BY tso.name;
 				'''.format(filters.get('from_date'), filters.get('to_date'), conditions) ,as_dict = 1)
@@ -124,14 +124,19 @@ def get_data(filters):
 			'chemical_type' : query_data[0]['chemical_type']
 		}
 		for qd in query_data:
+			# print(qd)
 			if qd['so_no'] == parent:
-				one_so_machines.append(qd['machine'])
-				one_so_machines_time.append(str(qd['machine_time']))
+				if qd['machine'] != None:
+					one_so_machines.append(qd['machine'])
+				if qd['machine_time'] != None:
+					one_so_machines_time.append(str(qd['machine_time']))
 			elif qd['so_no'] != parent:
-				row.update({
-					'machine' : ', '.join(one_so_machines),
-					'machine_time' : ', '.join(one_so_machines_time)
-				})
+				# print(one_so_machines, "=============")
+				if len(one_so_machines) > 0 and len(one_so_machines_time) > 0:
+					row.update({
+						'machine' : ', '.join(one_so_machines),
+						'machine_time' : ', '.join(one_so_machines_time)
+					})
 				data.append(row)
 				
 				parent = qd['so_no']
@@ -145,10 +150,12 @@ def get_data(filters):
 				}
 				one_so_machines = [qd['machine']]
 				one_so_machines_time = [str(qd['machine_time'])]
-		row.update({
-			'machine' : ', '.join(one_so_machines),
-			'machine_time' : ', '.join(one_so_machines_time)
-		})
+		# print(one_so_machines, "----------------")
+		if len(one_so_machines) > 0 and len(one_so_machines_time) > 0:
+			row.update({
+				'machine' : ', '.join(one_so_machines),
+				'machine_time' : ', '.join(one_so_machines_time)
+			})
 		data.append(row)
 
 		reportData, cost_per_kg, material_accounts_total, total_so_weight = calculate_cost_for_each_so(data)
