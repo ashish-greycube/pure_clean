@@ -158,7 +158,7 @@ def get_data(filters):
 			})
 		data.append(row)
 
-		reportData, cost_per_kg, material_accounts_total, total_so_weight = calculate_cost_for_each_so(data)
+		reportData, cost_per_kg, material_accounts_total, total_so_weight = calculate_cost_for_each_so(data,filters)
 		
 		summary = [
 			{'label' : _('Total Amount Of Material Account(From Company)'), 'value' : flt(material_accounts_total, 2),  "datatype": "Currency",  "indicator": "Green" },
@@ -170,7 +170,7 @@ def get_data(filters):
 			reportData = get_machine_wise_filter_data(filters.get('machine'), reportData, cost_per_kg)
 	return reportData, summary
 
-def calculate_cost_for_each_so(data):
+def calculate_cost_for_each_so(data,so_filters):
 	accounts = []
 	company = erpnext.get_default_company()
 	company_doc = frappe.get_doc("Company", company)
@@ -181,8 +181,8 @@ def calculate_cost_for_each_so(data):
 	from erpnext.accounts.report.general_ledger.general_ledger import execute as _execute
 	filters = frappe._dict({
 		'company' : company,
-		'from_date' : today(),
-		'to_date' : today(),
+		'from_date' : so_filters.get("from_date"),
+		'to_date' : so_filters.get("to_date"),
 		'account' : accounts,
 		'group_by' : 'Group by Voucher (Consolidated)'
 	})
