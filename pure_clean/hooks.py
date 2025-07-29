@@ -103,8 +103,8 @@ doc_events = {
         "validate":"pure_clean.api.calculate_item_weight"
 	}, 
     "Sales Order" : {
-        "validate" : ["pure_clean.api.calculate_so_items_weight",
-                      "pure_clean.api.validate_item_weight_with_machine_capacity"]
+        "validate" : ["pure_clean.api.calculate_so_items_weight"],
+        "on_submit" : "pure_clean.api.validate_item_weight_with_machine_capacity",
 	}
 }
 

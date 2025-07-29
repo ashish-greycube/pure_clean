@@ -38,6 +38,9 @@ def calculate_so_items_weight(self, method=None):
         self.grand_total_item_weight_cf = total_item_weight
 
 def validate_item_weight_with_machine_capacity(self, method=None):
+    if len(self.machine_table_cf) == 0:
+        frappe.throw(_("Please add machine details"))
+
     machine_capacity = 0
     if self.grand_total_item_weight_cf:
         if len(self.machine_table_cf)>0:

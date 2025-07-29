@@ -95,14 +95,6 @@ def after_migrate():
                 "options" : "Chemicals",
 			},
             {
-                "fieldname" : "time_cf",
-                "fieldtype" : "Time",
-                "label":'Time',
-                "insert_after":'chemical_cf',
-				"is_custom_field":1,
-				"is_system_generated":0,
-			},
-            {
                 "fieldname" : "machine_table_cf",
                 "fieldtype" : "Table",
                 "label":'Machine Details',
