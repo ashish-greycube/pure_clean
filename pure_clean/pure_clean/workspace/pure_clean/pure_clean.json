@@ -141,6 +141,32 @@
   },
   {
    "hidden": 0,
+   "is_query_report": 0,
+   "label": "Machine Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Machines",
+   "link_to": "Machines",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Chemicals",
+   "link_to": "Chemicals",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
    "is_query_report": 1,
    "label": "SO Weight Report",
    "link_to": "SO Weight Report",
@@ -149,7 +175,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-07-23 11:01:42.041445",
+ "modified": "2025-08-08 10:58:37.214390",
  "modified_by": "Administrator",
  "module": "Pure Clean",
  "name": "Pure Clean",
