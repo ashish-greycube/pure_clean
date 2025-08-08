@@ -98,7 +98,7 @@ def after_migrate():
                 "fieldname" : "machine_table_cf",
                 "fieldtype" : "Table",
                 "label":'Machine Details',
-                "insert_after":'time_cf',
+                "insert_after":'chemical_cf',
 				"is_custom_field":1,
 				"is_system_generated":0,
                 "options" : "Machine Details"
