@@ -10,7 +10,7 @@
  "idx": 0,
  "is_standard": "Yes",
  "letter_head": "\u062a\u0631\u0648\u064a\u0633\u0629 \u0627\u0644\u0637\u0628\u0627\u0639\u0629",
- "modified": "2025-08-07 15:47:26.367386",
+ "modified": "2025-08-28 07:37:03.184821",
  "modified_by": "Administrator",
  "module": "Pure Clean",
  "name": "SO Weight Report",
@@ -19,5 +19,15 @@
  "ref_doctype": "Sales Order",
  "report_name": "SO Weight Report",
  "report_type": "Script Report",
- "roles": []
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Employee Self Service"
+  }
+ ]
 }
