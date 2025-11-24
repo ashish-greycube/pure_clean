@@ -93,10 +93,10 @@ def get_data(filters):
 	currency_symbol=' ('+erpnext.get_default_currency()+')'
 	result_to_show=[]
 
-	data_for_all_customer = frappe.db.sql(""" SELECT si.customer ,SUM(i.net_amount) as total_sales,SUM(i.item_weight_total_cf) as total_weight From `tabSales Invoice` AS si 
-	INNER JOIN `tabSales Invoice Item` AS i ON si.name=i.parent 
-	WHERE si.posting_date >= %(from_date)s AND si.posting_date <= %(to_date)s
-	GROUP BY si.customer;  """,
+	data_for_all_customer = frappe.db.sql(""" SELECT so.customer ,SUM(i.net_amount) as total_sales,SUM(i.item_weight_total_cf) as total_weight From `tabSales Order` AS so 
+	INNER JOIN `tabSales Order Item` AS i ON so.name=i.parent 
+	WHERE so.transaction_date >= %(from_date)s AND so.transaction_date <= %(to_date)s
+	GROUP BY so.customer;  """,
 	{
 		"from_date":filters.from_date,
 		"to_date":filters.to_date,
@@ -104,10 +104,10 @@ def get_data(filters):
 
 
 	if filters.get('customer'):
-		data_for_single_customer = frappe.db.sql(""" SELECT si.customer ,SUM(i.net_amount) as total_sales,SUM(i.item_weight_total_cf) as total_weight From `tabSales Invoice` AS si 
-	INNER JOIN `tabSales Invoice Item` AS i ON si.name=i.parent 
-	WHERE si.posting_date >= %(from_date)s AND si.posting_date <= %(to_date)s AND si.customer = %(customer)s
-	GROUP BY si.customer;  """,
+		data_for_single_customer = frappe.db.sql(""" SELECT so.customer ,SUM(i.net_amount) as total_sales,SUM(i.item_weight_total_cf) as total_weight From `tabSales Order` AS so 
+	INNER JOIN `tabSales Order Item` AS i ON so.name=i.parent 
+	WHERE so.transaction_date >= %(from_date)s AND so.transaction_date <= %(to_date)s AND so.customer = %(customer)s
+	GROUP BY so.customer;  """,
 	{
 		"from_date":filters.from_date,
 		"to_date":filters.to_date,
