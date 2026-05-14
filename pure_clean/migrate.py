@@ -131,6 +131,22 @@ def after_migrate():
 				"is_custom_field":1,
 				"is_system_generated":0,
 			},
+            {
+                "fieldname" : "spot_in_cf",
+                "fieldtype" : "Int",
+                "label":'Spot In',
+                "insert_after":'item_code',
+				"is_custom_field":1,
+				"is_system_generated":0,
+			},
+            {
+                "fieldname" : "spot_out_cf",
+                "fieldtype" : "Int",
+                "label":'Spot Out',
+                "insert_after":'spot_in_cf',
+				"is_custom_field":1,
+				"is_system_generated":0,
+			},
         ]
     }
     print("Add Expense Account For Cleaning custom table in Company and Washing Priority custom field in SI,SO.....")
