@@ -1,23 +1,95 @@
 {
+ "cards_label": "Pure Clean",
+ "category": "Modules",
  "charts": [],
- "content": "[{\"id\":\"UviwEpfpGW\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Pure Clean</span>\",\"col\":12}},{\"id\":\"pc2aKbew2K\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
- "creation": "2026-05-14 13:33:11.375002",
- "custom_blocks": [],
+ "creation": "2026-05-18 07:10:42.190098",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
  "docstatus": 0,
  "doctype": "Workspace",
- "for_user": "",
+ "extends_another_page": 0,
  "hide_custom": 0,
- "icon": "review",
+ "icon": "",
  "idx": 0,
- "indicator_color": "green",
- "is_hidden": 0,
+ "is_default": 0,
+ "is_standard": 1,
  "label": "Pure Clean",
  "links": [
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Reports",
-   "link_count": 1,
+   "label": "Transaction",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sales Invoice",
+   "link_to": "Sales Invoice",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Company",
+   "link_to": "Company",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Item Price",
+   "link_to": "Item Price",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Customer",
+   "link_to": "Customer",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Account",
+   "link_to": "Account",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sales Order",
+   "link_to": "Sales Order",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Pure Clean Settings",
+   "link_to": "Pure Clean Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Report",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -25,25 +97,99 @@
   {
    "hidden": 0,
    "is_query_report": 1,
+   "label": "Customer Wise Item Weight",
+   "link_to": "Customer Wise Item Weight Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Customer Profit Based On Weight",
+   "link_to": "Customer Profit Based On Weight",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Collection",
+   "link_to": "Collection",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Monthly Customer Loyalty By Sales Partner",
+   "link_to": "Monthly Customer Loyalty By Sales Partner",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Monthly Customer Loyalty By Marketing Person",
+   "link_to": "Monthly Customer Loyalty By Marketing Person",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "SO Weight Report",
+   "link_to": "SO Weight Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Spot Report",
-   "link_count": 0,
    "link_to": "Spot Report",
    "link_type": "Report",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Machine Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Machines",
+   "link_to": "Machines",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Chemicals",
+   "link_to": "Chemicals",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2026-05-14 13:33:57.902384",
+ "modified": "2026-05-18 07:13:01.223210",
  "modified_by": "Administrator",
  "module": "Pure Clean",
  "name": "Pure Clean",
- "number_cards": [],
  "owner": "Administrator",
- "parent_page": "",
- "public": 1,
- "quick_lists": [],
- "roles": [],
- "sequence_id": 28.0,
- "shortcuts": [],
- "title": "Pure Clean"
+ "pin_to_bottom": 0,
+ "pin_to_top": 1,
+ "shortcuts": []
 }
