@@ -4,6 +4,8 @@ import frappe.defaults
 from frappe import msgprint, _
 from frappe.utils import flt
 
+from pure_clean.pure_clean.report.spot_report.spot_report import execute as execute
+
 def calculate_item_weight(self,method):
     
     total_item_weight = 0
@@ -52,3 +54,17 @@ def validate_item_weight_with_machine_capacity(self, method=None):
         if total_item_weight_in_kg > machine_capacity: 
             frappe.throw(_("Total Item Weight {0} KG is greater than Machine Capacity {1} KG").format(
                 total_item_weight_in_kg, machine_capacity))
+
+@frappe.whitelist() 
+def get_spot_balance_from_spot_report(customer, item, from_date, to_date):
+    filters = {
+        "item": item,
+        "customer": customer,
+        "from_date": from_date,
+        "to_date": to_date
+    }
+
+    report_data = execute(filters)
+    spot_balance = report_data[1][0]["balance"] or 0
+
+    return spot_balance

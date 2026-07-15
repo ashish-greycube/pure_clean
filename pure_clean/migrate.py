@@ -147,6 +147,15 @@ def after_migrate():
 				"is_custom_field":1,
 				"is_system_generated":0,
 			},
+            {
+                "fieldname" : "spot_balance_cf",
+                "fieldtype" : "Int",
+                "label":'Spot Balance',
+                "insert_after":'spot_out_cf',
+				"is_custom_field":1,
+				"is_system_generated":0,
+                "read_only": 1
+			},
         ]
     }
     print("Add Expense Account For Cleaning custom table in Company and Washing Priority custom field in SI,SO.....")
