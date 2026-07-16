@@ -65,6 +65,10 @@ def get_spot_balance_from_spot_report(customer, item, from_date, to_date):
     }
 
     report_data = execute(filters)
-    spot_balance = report_data[1][0]["balance"] or 0
+
+    if len(report_data[1])<=0:
+        return 0
+    
+    spot_balance = report_data[1][0]["balance"] if report_data[1][0]["balance"] else 0
 
     return spot_balance
