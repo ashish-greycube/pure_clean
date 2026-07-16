@@ -81,6 +81,7 @@ def get_data(filters):
             `tabSales Order Item` soi ON soi.parent = so.name
         WHERE 
             so.docstatus != 2
+            AND (soi.spot_in_cf != 0 OR soi.spot_out_cf != 0)
             {conditions}
         GROUP BY
             so.customer, soi.item_code
