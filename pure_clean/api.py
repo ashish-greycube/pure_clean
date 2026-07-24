@@ -60,8 +60,8 @@ def get_spot_balance_from_spot_report(customer, item, from_date, to_date):
     filters = {
         "item": item,
         "customer": customer,
-        "from_date": from_date,
-        "to_date": to_date
+        # "from_date": from_date,
+        # "to_date": to_date
     }
 
     report_data = execute(filters)

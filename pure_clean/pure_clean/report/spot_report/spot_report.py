@@ -85,4 +85,4 @@ def get_data(filters):
             {conditions}
         GROUP BY
             so.customer, soi.item_code
-    """, values, as_dict=1, debug=1)
+    """, values, as_dict=1)

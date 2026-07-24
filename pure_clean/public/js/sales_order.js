@@ -59,8 +59,10 @@ frappe.ui.form.on('Sales Order Item', {
             callback(r) {
                 let spot_balance = r.message
 
+                console.log(spot_balance)
+
                 frappe.model.set_value(cdt, cdn, 'spot_balance_cf', spot_balance)
-                row.refresh_field("items")
+                frm.refresh_field("items")
             }
         })
     },
